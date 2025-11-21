@@ -13,7 +13,7 @@ function Registerpage() {
     e.preventDefault();
     setLoading(true);
 try{
-  const res=await api.post("/auth/register",{name,email,password});
+  const res=await api.post("/register",{name,email,password});
   console.log("Registration successfull:",res.data);
   router.push("/dashboard");
 }

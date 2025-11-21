@@ -13,7 +13,12 @@ export default function AddTransactionPage() {
   const [date, setDate] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
-  const userid = "123"; // TODO: later replace with logged-in user ID
+const userdata=localStorage.getItem("user");
+if(!userdata)return;
+const user=JSON.parse(userdata);
+const userid=user.id;
+
+
 
   const categories = [
     "Food",
@@ -49,7 +54,7 @@ export default function AddTransactionPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-[] bg-gray-100">
 
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
 
@@ -137,7 +142,7 @@ export default function AddTransactionPage() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded font-medium hover:bg-blue-700"
+            className="w-full bg-indigo-600 text-white p-2 rounded font-medium hover:bg-indigo-700"
           >
             Add Transaction
           </button>

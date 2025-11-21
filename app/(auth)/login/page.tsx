@@ -16,8 +16,9 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await api.post("/auth/login", { email, password });
+      const res = await api.post("/login", { email, password });
       console.log("Login success:", res.data);
+       localStorage.setItem("user", JSON.stringify(res.data));
 
       router.push("/dashboard");
     } catch (error) {
