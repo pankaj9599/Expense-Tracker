@@ -26,8 +26,8 @@ function Navbar() {
         </div>
 
         {/* Profile */}
-        <div className="w-20 text-right hover:text-blue-600 cursor-pointer">
-          Profile
+        <div className="text-right hover:text-blue-600  w-10 h-10 cursor-pointer">
+        <img src="components/account.png" alt="" />
         </div>
 
       </div>

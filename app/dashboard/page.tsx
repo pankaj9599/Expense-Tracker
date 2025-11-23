@@ -63,7 +63,7 @@ export default function TransactionsPage() {
 
               <div className="absolute inset-0 backdrop-blur-sm bg-black/20" onClick={()=>setShowForm(false)}></div>
               <div className="relative z-50 bg-white p-6 rounded-xl  shadow-lg w-[450px]">
-            <TransactionForm />
+            <TransactionForm  closeForm={()=>setShowForm(false) }/>
             </div>
             </div>
             

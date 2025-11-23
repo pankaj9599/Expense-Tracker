@@ -4,13 +4,13 @@ import { useState } from "react";
 import api from "@/lib/api";
 import { useRouter } from "next/navigation";
 
-export default function AddTransactionPage() {
+export default function AddTransactionPage({ closeForm }: { closeForm: () => void }) {
   const router = useRouter();
-
+const today = new Date().toISOString().split("T")[0]; 
   const [type, setType] = useState<"income" | "expense">("expense");
   const [amount, setAmount] = useState<number>(0);
   const [category, setCategory] = useState<string>("");
-  const [date, setDate] = useState<string>("");
+  // const [date, setDate] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
 const userdata=localStorage.getItem("user");
@@ -41,12 +41,12 @@ const userid=user.id;
         type,
         amount,
         category,
-        date,
+        date:today,
         description,
       });
 
       alert("Transaction added!");
-      router.push("/dashboard");
+       closeForm();
     } catch (error) {
       alert("Something went wrong");
       console.error(error);
@@ -112,7 +112,7 @@ const userid=user.id;
           </div>
 
           {/* Date */}
-          <div>
+          {/* <div>
             <label className="block text-gray-700 font-medium mb-1">
               Date
             </label>
@@ -123,7 +123,7 @@ const userid=user.id;
               onChange={(e) => setDate(e.target.value)}
               required
             />
-          </div>
+          </div> */}
 
           {/* Description */}
           <div>
